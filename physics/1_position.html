@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html><head><meta charset="utf-8"><title>Skookum Labs - http://labs.skookum.com/demos/barcampclt_physics/</title></head>
+
+<body>
+
+<canvas id="surface" width="600" height="400"></canvas>
+
+<pre><code id="source">
+
+// Version 0: Position
+
+var ball = {
+  x: 300,
+  y: 200,
+  r: 15
+};
+
+var canvas = document.getElementById("surface");
+var ctx = canvas.getContext('2d');
+
+setInterval(function() {
+
+  // Clear display
+  ctx.save();
+    ctx.fillStyle = "rgba(0, 1, 1, .2)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.restore();
+
+  // Draw ball
+  ctx.save();
+    ctx.translate(ball.x, ball.y);
+    ctx.fillStyle = "#f00";
+    ctx.beginPath();
+    ctx.arc(0, 0, ball.r, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fill();
+  ctx.restore();
+
+}, 1000 / 77);
+</code></pre>
+
+<script>
+
+// Version 0: Position
+
+var ball = {
+  x: 300,
+  y: 200,
+  r: 15
+};
+
+var canvas = document.getElementById("surface");
+var ctx = canvas.getContext('2d');
+
+setInterval(function() {
+
+  // Clear display
+  ctx.save();
+    ctx.fillStyle = "rgba(0, 255, 255, 1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.restore();
+
+  // Draw ball
+  ctx.save();
+    ctx.translate(ball.x, ball.y);
+    ctx.fillStyle = "#F00";
+    ctx.beginPath();
+    ctx.arc(0, 0, ball.r, 0, Math.PI * 2, true);
+    ctx.closePath();
+    ctx.fill();
+  ctx.restore();
+
+}, 1000 / 77);
+
+</script>
+</body></html>

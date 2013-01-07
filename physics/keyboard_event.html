@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html> <head>
+<meta charset="utf-8">
+<title>Skookum Labs - http://labs.skookum.com/demos/barcampclt_physics/</title>
+</head>
+<body>
+<canvas id="surface" width="600" height="400"></canvas>
+<script>
+// Version 0: Position
+var x = 150; var y = 100; var r = 15; var dx = 5; var dy = 5;
+var WIDTH = 800; var HEIGHT = 600;
+var canvas = document.getElementById("surface");
+var ctx = canvas.getContext('2d');
+
+function draw() {
+// Clear display
+ctx.save();
+ctx.fillStyle = "rgba(0, 255, 255, 1)";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.restore();
+
+// Draw rectangle
+ctx.save();  
+ctx.fillStyle = "white"; ctx.strokeStyle = "black";
+ctx.beginPath(); 
+ctx.rect(100,200,200,100);
+ctx.closePath(); 
+ctx.fill(); 
+ctx.stroke();
+
+//draw ball
+ctx.fillStyle = "purple"; ctx.beginPath();
+ctx.arc(x, y, r, 0, Math.PI*2, true);
+ctx.fill();
+}
+//draw();
+setInterval(draw, 10);
+
+window.addEventListener('keydown',doKeyDown,true);
+
+function doKeyDown(evt){
+switch (evt.keyCode) {
+	case 38:  /* Up arrow was pressed */
+		if (y - dy > 0){
+		y -= dy;
+	}
+	break;
+	case 40:  /* Down arrow was pressed */
+		if (y + dy < HEIGHT){
+		y += dy;
+		}
+	break;
+	
+	case 37:  /* Left arrow was pressed */
+	if (x - dx > 0){
+		x -= dx;
+	}
+	break;
+	case 39:  /* Right arrow was pressed */
+	if (x + dx < WIDTH){
+		x += dx;
+	}
+break;
+}
+
+}
+
+
+</script> </body></html>
